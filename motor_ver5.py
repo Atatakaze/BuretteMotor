@@ -8,7 +8,7 @@
 import RPi.GPIO as gpio
 import time
 import sys
-from array import array
+
 gpio.setmode(gpio.BCM)      # select BCM mode
 gpio.setwarnings(False)     # disable warning message
 
@@ -50,7 +50,7 @@ def SPIN(direction):
   print('Start working ...')
 
   duration_count = 0
-  global sequence_index, direction
+  global sequence_index
 
   while duration_count < duration_time:
     for i in range(PIN_COUNT):
