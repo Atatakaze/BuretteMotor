@@ -22,22 +22,22 @@ if __name__ == "__main__":
     
     # setting motor speed and duration
     # >>> python motor_main.py <motor1 speed> <motor1 duration> <motor2 speed> <motor2 duration>
-    if argc == 2:
+    if len(sys.argv) == 2:
         motor1_speed = int(sys.argv[1])/float(1000)
         motor1_duration = 100
         motor2_speed = 10/float(1000)
         motor2_duration = 100
-    elif argc == 3:
+    elif len(sys.argv) == 3:
         motor1_speed = int(sys.argv[1])/float(1000)
         motor1_duration = int(sys.argv[2])
         motor2_speed = 10/float(1000)
         motor2_duration = 100
-    elif argc == 4:
+    elif len(sys.argv) == 4:
         motor1_speed = int(sys.argv[1])/float(1000)
         motor1_duration = int(sys.argv[2])
         motor2_speed = int(sys.argv[3])/float(1000)
         motor2_duration = 100
-    elif argc == 5:
+    elif len(sys.argv) == 5:
         motor1_speed = int(sys.argv[1])/float(1000)
         motor1_duration = int(sys.argv[2])
         motor2_speed = int(sys.argv[3])/float(1000)
