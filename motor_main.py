@@ -22,7 +22,7 @@ if __name__ == "__main__":
     # setting motor speed and duration
     # >>> python motor_main.py <motor1 speed> <motor1 duration> <motor2 speed> <motor2 duration>
     motor1_speed, motor1_duration, motor2_speed, motor2_duration = motor_param()
-    
+
     # initial motor 1
     motor1_SEQUENCE, motor1_SEQUENCE_COUNT, motor1_PIN_COUNT = motor_init(motor1)
     # initial motor 2
