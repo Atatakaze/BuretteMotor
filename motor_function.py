@@ -80,7 +80,7 @@ def motor_run(OutputPins, Direction, SEQUENCE, Duration=100, Speed=(10/float(100
         sequence_index += Direction
         sequence_index %= SEQUENCE_COUNT
         
-        print('[Progress] : ', duration_count, ' %.')
+        print('progress:', duration_count, '%')
         time.sleep(Speed)
         duration_count += 1
     
