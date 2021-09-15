@@ -11,12 +11,12 @@
 from motor_function import motor_init, motor_run, motor_param
 import RPi.GPIO as GPIO
 
-# <motor parameter setting> 
-#     <set motor output pins> 
-motor1 = [17, 18, 27, 22] 
+# <motor parameter setting>
+#     <set motor output pins>
+motor1 = [17, 18, 27, 22]
 motor2 = [10, 9, 11, 8]
-#     </set motor output pins>      
-# </motor parameter setting> 
+#     </set motor output pins>
+# </motor parameter setting>
 
 if __name__ == "__main__":
     
@@ -34,12 +34,12 @@ if __name__ == "__main__":
         print('Ress Ctrl-C to stop the program.')
         while True:
             # select motor and duration
-            print('[which motor to run] (1: motor1, 2: motor 2) ')
-            print('[duration time] (unit: second) ')
-            print('[MODE] (mode1: clockwise -> counterwise, mode2: counterwise -> clockwise )')
-            motorSelect, duration, MODE = input('>>> ').split()
-            MOTOR_SELECT = int(motorSelect)
-            DURATION = int(duration)
+            MOTOR_SELECT = int(input('[which motor to run] (1: motor1, 2: motor 2): '))
+            DURATION = int(input('[duration time] (unit: second): '))
+            MODE = int(input('[MODE] (1: clockwise -> counterwise, 2: counterwise -> clockwise ): '))
+            #motorSelect, duration, MODE = input('>>> ').split()
+            #MOTOR_SELECT = int(motorSelect)
+            #DURATION = int(duration)
             print('MOTOR_SELECT: ', MOTOR_SELECT)
             print('DURATION: ', DURATION)
             print('MODE: ', MODE)

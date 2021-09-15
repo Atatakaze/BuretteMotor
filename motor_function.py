@@ -65,10 +65,10 @@ def motor_run(OUTPUTPINS, MODE, DURATION, MOTOR_STEPS=100, SEQUENCE=[[1, 1, 0, 0
     sequence_index = 0
     steps_count = 0
     # select mode
-    if MODE == 'MODE1':
+    if MODE == 1:
         open_direction = 1
         close_direction = -1
-    elif MODE == 'MODE2':
+    elif MODE == 2:
         open_direction = -1
         close_direction = 1
     else:
