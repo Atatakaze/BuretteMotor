@@ -9,6 +9,7 @@
 ##################################################
 
 from motor_function import motor_init, motor_run, motor_param
+import RPi.GPIO as GPIO
 
 # <motor parameter setting> 
 #     <set motor output pins> 
@@ -36,17 +37,21 @@ if __name__ == "__main__":
             print('[which motor to run] (1: motor1, 2: motor 2) ')
             print('[duration time] (unit: second) ')
             print('[MODE] (mode1: clockwise -> counterwise, mode2: counterwise -> clockwise )')
-            motorSelect, duration, MODE = input().split()
+            motorSelect, duration, MODE = input('>>> ').split()
             MOTOR_SELECT = int(motorSelect)
             DURATION = int(duration)
-            if motorSelect == 1:
+            print('MOTOR_SELECT: ', MOTOR_SELECT)
+            print('DURATION: ', DURATION)
+            print('MODE: ', MODE)
+            
+            if MOTOR_SELECT == 1:
                 # motor_run(OUTPUTPINS, MODE, DURATION, MOTOR_STEPS, SEQUENCE, SEQUENCE_COUNT, PIN_COUNT)
                 motor_run(motor1, MODE, DURATION, MOTOR1_STEPS)
-            if motorSelect == 2:
+            if MOTOR_SELECT == 2:
                 # motor_run(OUTPUTPINS, MODE, DURATION, MOTOR_STEPS, SEQUENCE, SEQUENCE_COUNT, PIN_COUNT)
                 motor_run(motor2, MODE, DURATION, MOTOR2_STEPS)
             
     except KeyboardInterrupt:  
         print('Program Closed.')
     finally:
-        gpio.cleanup()
+        GPIO.cleanup()
