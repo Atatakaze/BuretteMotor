@@ -25,7 +25,7 @@
     
    *\<which motor to run> (1: motor1, 2: motor 2)* 
      
-   *\<duration time> (unit: second)* 
+   *\<duration time> (unit: second) -> volume(ml) = 5.46 \* duration(s) + 3.19* 
      
    *\<MODE> (mode1: clockwise -> counterwise, mode2 counterwise -> clockwise )* 
     
