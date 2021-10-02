@@ -49,6 +49,15 @@
    *\<which motor to run> (1: motor1, 2: motor 2)* 
      
    *\<which direction to rotate> (1: clockwise, -1: counterwise):* 
+   
+- ### GUI_main.py & GUI_function.py ### 
+
+   Run `GUI_main.py` to open GUI. 
     
+     *Using class to define different windows.*
+
+- ### GUI_UsingFunctionDefine.py ###  
+    
+     *Using functions to define different windows. (abandon)*    
     
     
