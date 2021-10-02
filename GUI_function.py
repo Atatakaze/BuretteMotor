@@ -4,13 +4,6 @@ from tkinter import messagebox
 import tkinter as tk
 import tkinter.ttk as ttk
 
-# ====== <parameter> ====== #
-SWEETNESS_ENABLE = False
-SWEETNESS = 'Normal Sweet'
-ACIDITY_ENABLE = False
-ACIDITY = 0
-# ====== </parameter> ====== #
-
 # root window
 class Tkwindow():
     # create root window
@@ -162,8 +155,3 @@ class Sweet(Custom):
         SWEETNESS = self.opt.get()
         print('set <SWEETNESS> ', SWEETNESS)
         self.quit()
-
-
-root = Tkwindow()
-
-# %%
