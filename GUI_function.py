@@ -73,7 +73,7 @@ class Tkwindow():
         # setting motor duration
         # >>> python motor_main.py <motor1 steps> <motor2 steps>
         MOTOR1_STEPS, MOTOR2_STEPS = motor_param()
-
+        SEQUENCE1, SEQUENCE_COUNT1, PIN_COUNT1 = motor_init(motor1)
         MODE = 1
         DURATION = 5
         motor_run(motor1, MODE, DURATION, MOTOR1_STEPS)
