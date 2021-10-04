@@ -79,7 +79,7 @@ class Tkwindow():
 
         # start mixing
         motor_run(motor1, 1, DURATION1, MOTOR1_STEPS)
-        motor_run(motor2, 1, DURATION2, MOTOR2_STEPS)
+        motor_run(motor2, 2, DURATION2, MOTOR2_STEPS)
         messagebox.showinfo('Burette Motor <info>', 'Mixing finish.')
 
     def customMode(self):
@@ -198,7 +198,7 @@ class Sweet(Custom):
 
         # start mixing
         motor_run(motor1, 1, DURATION1, MOTOR1_STEPS)
-        motor_run(motor2, 1, DURATION2, MOTOR2_STEPS)
+        motor_run(motor2, 2, DURATION2, MOTOR2_STEPS)
         messagebox.showinfo('Burette Motor <info>', 'Mixing finish.')
         # setting different ratio of the mix
         

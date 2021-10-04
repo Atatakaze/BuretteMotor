@@ -15,9 +15,9 @@ import sys
 # calculating the duration needed for the target volume
 def calVolume(motor, volume):
     if motor == 'MOTOR1':
-        duration = ( volume - 3.1857 ) / 5.4607
+        duration = ( volume - 5.4 ) / 6.075
     elif motor == 'MOTOR2':
-        duration = ( volume - 3.0167 ) / 0.439
+        duration = ( volume - 3.8667 ) / 0.422
     return duration
 
 # mixing two wine
