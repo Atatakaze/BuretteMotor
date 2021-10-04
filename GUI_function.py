@@ -16,35 +16,30 @@ class Tkwindow():
         # initialize window name, size
         self.window = tk.Tk()
         self.window.title('Burette Motor')
-        self.window.geometry('450x160')
+        self.window.geometry('450x150')
 
         # setting frame of the widget
-        div1 = tk.Frame(self.window, width=450, height=10, bg='yellow')
-        div2 = tk.Frame(self.window, width=450, height=100, bg='blue')
-        div3 = tk.Frame(self.window, width=225, height=50, bg='green')
-        div4 = tk.Frame(self.window, width=225, height=50, bg='red')
+        div1 = tk.Frame(self.window, width=450, height=100, bg='blue')
+        div2 = tk.Frame(self.window, width=225, height=50, bg='green')
+        div3 = tk.Frame(self.window, width=225, height=50, bg='red')
         # setting widget position = (column, row)
-        div1.grid(column=0, row=0, columnspan=2, padx=5)
-        div2.grid(column=0, row=1, columnspan=2, padx=5)
-        div3.grid(column=0, row=2, padx=50, pady=5)
-        div4.grid(column=1, row=2, padx=50, pady=5)
+        div1.grid(column=0, row=1, columnspan=2, padx=5)
+        div2.grid(column=0, row=2, padx=50, pady=5)
+        div3.grid(column=1, row=2, padx=50, pady=5)
 
-        self.define_layout(self.window, cols=2, rows=3)
-        self.define_layout([div1, div2, div3, div4])
-        
-        bt_1 = tk.Button(div1, text='x', font=('Arial', 8), bg='red', fg='white', command=self.quit)
-        bt_1.grid(sticky='w')
+        self.define_layout(self.window, cols=2, rows=2)
+        self.define_layout([div1, div2, div3])
         
         lb1 = tk.Label(div2, text="Which mode do you want to choose?\nAuto or Custom mode.", font=('Arial', 18))
         lb1.grid()
         
-        bt_2 = tk.Button(div3, text='Auto Mode', font=('Arial', 14), bg='gray', fg='white', command=self.autoMode)
-        bt_2.grid(sticky='e')
-        bt_3 = tk.Button(div4, text='Custom Mode', font=('Arial', 14), bg='gray', fg='white', command=self.customMode)
-        bt_3.grid(sticky='w')
+        bt_1 = tk.Button(div3, text='Auto Mode', font=('Arial', 14), bg='gray', fg='white', command=self.autoMode)
+        bt_1.grid(sticky='e')
+        bt_2 = tk.Button(div4, text='Custom Mode', font=('Arial', 14), bg='gray', fg='white', command=self.customMode)
+        bt_2.grid(sticky='w')
 
-        self.define_layout(self.window, cols=2, rows=3)
-        self.define_layout([div1, div2, div3, div4])
+        self.define_layout(self.window, cols=2, rows=2)
+        self.define_layout([div1, div2, div3])
         
         self.window.mainloop()
 
@@ -73,14 +68,14 @@ class Tkwindow():
         #messagebox.askquestion('MessageBox Question', 'Confirm ?')
 
     def autoMode(self):
-        messagebox.showinfo('Burette Motor <info>', 'You choose the auto mode, press OK to start mixing.')
+        messagebox.showinfo('Burette Motor <info>', "You choose the auto mode.\nPress OK to start mixing.")
         # initial motor1 and motor2
         MOTOR1_STEPS, MOTOR2_STEPS = motor_param()
         SEQUENCE1, SEQUENCE_COUNT1, PIN_COUNT1 = motor_init(motor1)
         SEQUENCE2, SEQUENCE_COUNT2, PIN_COUNT2 = motor_init(motor2)
         # best ratio = 2:8 
-        # maximum volume = 40
-        DURATION1, DURATION2 = Mixing(10, 40)
+        # total volume = 40
+        DURATION1, DURATION2 = Mixing(8, 32)
 
         # start mixing
         motor_run(motor1, 1, DURATION1, MOTOR1_STEPS)
@@ -170,11 +165,42 @@ class Sweet(Custom):
 
         # confirm sweet choose
     def set_sweet(self):
+        # Enable SWEETNESS_ENABLE and disable ACIDITY_ENABLE
+        # Get custom parameters
         global SWEETNESS, SWEETNESS_ENABLE, ACIDITY, ACIDITY_ENABLE
         SWEETNESS_ENABLE = 'True'
         ACIDITY_ENABLE = 'False'
         print('set <SWEETNESS_ENABLE> ', SWEETNESS_ENABLE)
         SWEETNESS = self.opt.get()
         print('set <SWEETNESS> ', SWEETNESS)
+
+        messagebox.showinfo('Burette Motor <info>', "You choose the custom mode.\nPress OK to start mixing.")
+        # initial motor1 and motor2
+        MOTOR1_STEPS, MOTOR2_STEPS = motor_param()
+        SEQUENCE1, SEQUENCE_COUNT1, PIN_COUNT1 = motor_init(motor1)
+        SEQUENCE2, SEQUENCE_COUNT2, PIN_COUNT2 = motor_init(motor2)
+         
+        # total volume = 40
+        if SWEETNESS == 'No Sweet':
+            DURATION1, DURATION2 = Mixing(0, 40)
+        elif SWEETNESS == 'Quarter Sweet':
+            DURATION1, DURATION2 = Mixing(5, 35)
+        elif SWEETNESS == 'Half Sweet':
+            DURATION1, DURATION2 = Mixing(10, 30)
+        elif SWEETNESS == 'Less Sweet':
+            DURATION1, DURATION2 = Mixing(15, 25)
+        elif SWEETNESS == 'Normal Sweet':
+            DURATION1, DURATION2 = Mixing(20, 20)
+        elif SWEETNESS == 'Very Sweet':
+            DURATION1, DURATION2 = Mixing(30, 10)
+        elif SWEETNESS == 'Super Sweet':
+            DURATION1, DURATION2 = Mixing(40, 0)
+
+        # start mixing
+        motor_run(motor1, 1, DURATION1, MOTOR1_STEPS)
+        motor_run(motor2, 1, DURATION2, MOTOR2_STEPS)
+        messagebox.showinfo('Burette Motor <info>', 'Mixing finish.')
+        # setting different ratio of the mix
+        
         self.quit()
 # %%
