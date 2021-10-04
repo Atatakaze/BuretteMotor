@@ -102,7 +102,7 @@ def motor_run(OUTPUTPINS, MODE, DURATION, MOTOR_STEPS=100, SEQUENCE=[[1, 1, 0, 0
         
         time.sleep(10/float(1000))
         steps_count += 1
-        print('open progress: ', steps_count, '/', MOTOR_STEPS)
+        print('open progress: ', int(steps_count/MOTOR_STEPS), '%')
     
     print('Halt for ', DURATION, ' seconds...')
     time.sleep(DURATION)
@@ -120,6 +120,6 @@ def motor_run(OUTPUTPINS, MODE, DURATION, MOTOR_STEPS=100, SEQUENCE=[[1, 1, 0, 0
         
         time.sleep(10/float(1000))
         steps_count += 1
-        print('close progress: ', steps_count, '/', MOTOR_STEPS)
+        print('close progress: ', int(steps_count/MOTOR_STEPS), '%')
     
     print('Finish !!! ')
