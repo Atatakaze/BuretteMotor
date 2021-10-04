@@ -104,7 +104,7 @@ def motor_run(OUTPUTPINS, MODE, DURATION, MOTOR_STEPS=100, SEQUENCE=[[1, 1, 0, 0
         steps_count += 1
         print('open progress: ', steps_count, '/', MOTOR_STEPS)
     
-    print('Halt ...')
+    print('Halt for ', DURATION, ' seconds...')
     time.sleep(DURATION)
     
     # close burette
