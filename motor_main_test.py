@@ -8,7 +8,7 @@
 #                                                #
 ##################################################
 
-from motor_function import motor_init, motor_run, motor_param
+from motor_function_test import motor_init, motor_run, motor_param
 
 # <motor parameter setting> 
 #     <set motor output pins> 
