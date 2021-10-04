@@ -3,7 +3,6 @@ from tkinter import *
 from tkinter import messagebox
 import tkinter as tk
 import tkinter.ttk as ttk
-from TEL_lab.BuretteMotor.motor_main import DURATION
 from motor_function import motor_init, motor_run, motor_param, calVolume
 
 # ====== <parameters> ====== #
