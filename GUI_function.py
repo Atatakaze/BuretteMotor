@@ -30,7 +30,7 @@ class Tkwindow():
         self.define_layout(self.window, cols=2, rows=2)
         self.define_layout([div1, div2, div3])
         
-        lb1 = tk.Label(div2, text="Which mode do you want to choose?\nAuto or Custom mode.", font=('Arial', 18))
+        lb1 = tk.Label(div1, text="Which mode do you want to choose?\nAuto or Custom mode.", font=('Arial', 18))
         lb1.grid()
         
         bt_1 = tk.Button(div2, text='Auto Mode', font=('Arial', 14), bg='gray', fg='white', command=self.autoMode)
