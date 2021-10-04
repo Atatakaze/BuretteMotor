@@ -3,7 +3,7 @@
 # Program:                                       #
 #       motor functions used by motor_main.py    #
 # History:                                       #
-#       2021/09/15                               #
+#       2021/10/04                               #
 # < using 4-steps step motor >                   #
 #                                                #
 ##################################################
@@ -11,6 +11,14 @@
 import RPi.GPIO as GPIO
 import time
 import sys
+
+# calculating the duration needed for the target volume
+def calVolume(motor, volume):
+    if motor == 'MOTOR1':
+        duration = ( volume - 3.1857 ) / 5.4607
+    elif motor == 'MOTOR2':
+        duration = ( volume - 3.0167 ) / 0.439
+    return duration
 
 # initial parameters from sys.argv
 # setting motor speed and duration

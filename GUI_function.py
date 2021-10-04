@@ -3,6 +3,12 @@ from tkinter import *
 from tkinter import messagebox
 import tkinter as tk
 import tkinter.ttk as ttk
+from motor_function import motor_init, motor_run, motor_param, calVolume
+
+# ====== <parameters> ====== #
+motor1 = [17, 18, 27, 22]
+motor2 = [10, 9, 11, 8]
+# ======</parameters> ====== #
 
 # root window
 class Tkwindow():
@@ -64,10 +70,12 @@ class Tkwindow():
 
     def autoMode(self):
         messagebox.showinfo('Burette Motor <info>', 'You choose the auto mode, the wine is mixing...')
+        motor_run(motor1, MODE=1, DURATION=5, MOTOR1_STEPS=100)
+        messagebox.showinfo('Burette Motor <info>', 'Mixing finish.')
 
     def customMode(self):
         custom_window = Custom()
-        
+
 # custom mode window
 class Custom(Tkwindow):
     # custom mode window
@@ -155,3 +163,4 @@ class Sweet(Custom):
         SWEETNESS = self.opt.get()
         print('set <SWEETNESS> ', SWEETNESS)
         self.quit()
+# %%
