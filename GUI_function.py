@@ -1,9 +1,8 @@
-# %%
 from tkinter import *
 from tkinter import messagebox
 import tkinter as tk
 import tkinter.ttk as ttk
-from motor_function import motor_init, motor_run, motor_param, calVolume
+from motor_function import motor_init, motor_run, motor_param, Mixing
 
 # ====== <parameters> ====== #
 motor1 = [17, 18, 27, 22]
@@ -69,14 +68,18 @@ class Tkwindow():
         #messagebox.askquestion('MessageBox Question', 'Confirm ?')
 
     def autoMode(self):
-        messagebox.showinfo('Burette Motor <info>', 'You choose the auto mode, the wine is mixing...')
-        # setting motor duration
-        # >>> python motor_main.py <motor1 steps> <motor2 steps>
+        messagebox.showinfo('Burette Motor <info>', 'You choose the auto mode, press OK to start mixing.')
+        # initial motor1 and motor2
         MOTOR1_STEPS, MOTOR2_STEPS = motor_param()
         SEQUENCE1, SEQUENCE_COUNT1, PIN_COUNT1 = motor_init(motor1)
-        MODE = 1
-        DURATION = 5
-        motor_run(motor1, MODE, DURATION, MOTOR1_STEPS)
+        SEQUENCE2, SEQUENCE_COUNT2, PIN_COUNT2 = motor_init(motor2)
+        # best ratio = 2:8 
+        # maximum volume = 40
+        DURATION1, DURATION2 = Mixing(10, 40)
+
+        # start mixing
+        motor_run(motor1, 1, DURATION1, MOTOR1_STEPS)
+        motor_run(motor2, 1, DURATION2, MOTOR2_STEPS)
         messagebox.showinfo('Burette Motor <info>', 'Mixing finish.')
 
     def customMode(self):

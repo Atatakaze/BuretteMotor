@@ -20,6 +20,13 @@ def calVolume(motor, volume):
         duration = ( volume - 3.0167 ) / 0.439
     return duration
 
+# mixing two wine
+# wine1:wine2 = the ratio of two wine in the mix (unit: ml)
+def Mixing(wine1, wine2):
+    duration1 = calVolume('MOTOR1', wine1)
+    duration2 = calVolume('MOTOR2', wine2)
+    return duration1, duration2
+
 # initial parameters from sys.argv
 # setting motor speed and duration
 # >>> python motor_main.py <motor1 duration> <motor2 duration>
