@@ -16,30 +16,35 @@ class Tkwindow():
         # initialize window name, size
         self.window = tk.Tk()
         self.window.title('Burette Motor')
-        self.window.geometry('450x150')
+        self.window.geometry('450x160')
 
         # setting frame of the widget
-        div1 = tk.Frame(self.window, width=450, height=100, bg='blue')
-        div2 = tk.Frame(self.window, width=225, height=50, bg='green')
-        div3 = tk.Frame(self.window, width=225, height=50, bg='red')
+        div1 = tk.Frame(self.window, width=450, height=10, bg='yellow')
+        div2 = tk.Frame(self.window, width=450, height=100, bg='blue')
+        div3 = tk.Frame(self.window, width=225, height=50, bg='green')
+        div4 = tk.Frame(self.window, width=225, height=50, bg='red')
         # setting widget position = (column, row)
         div1.grid(column=0, row=0, columnspan=2, padx=5)
-        div2.grid(column=0, row=1, padx=50, pady=5)
-        div3.grid(column=1, row=1, padx=50, pady=5)
+        div2.grid(column=0, row=1, columnspan=2, padx=5)
+        div3.grid(column=0, row=2, padx=50, pady=5)
+        div4.grid(column=1, row=2, padx=50, pady=5)
 
-        self.define_layout(self.window, cols=2, rows=2)
-        self.define_layout([div1, div2, div3])
+        self.define_layout(self.window, cols=2, rows=3)
+        self.define_layout([div1, div2, div3, div4])
         
-        lb1 = tk.Label(div1, text="Which mode do you want to choose?\nAuto or Custom mode.", font=('Arial', 18))
+        bt_1 = tk.Button(div1, text='x', font=('Arial', 8), bg='red', fg='white', command=self.quit)
+        bt_1.grid(sticky='w')
+        
+        lb1 = tk.Label(div2, text="Which mode do you want to choose?\nAuto or Custom mode.", font=('Arial', 18))
         lb1.grid()
         
-        bt_1 = tk.Button(div2, text='Auto Mode', font=('Arial', 14), bg='gray', fg='white', command=self.autoMode)
-        bt_1.grid(sticky='e')
-        bt_2 = tk.Button(div3, text='Custom Mode', font=('Arial', 14), bg='gray', fg='white', command=self.customMode)
-        bt_2.grid(sticky='w')
+        bt_2 = tk.Button(div3, text='Auto Mode', font=('Arial', 14), bg='gray', fg='white', command=self.autoMode)
+        bt_2.grid(sticky='e')
+        bt_3 = tk.Button(div4, text='Custom Mode', font=('Arial', 14), bg='gray', fg='white', command=self.customMode)
+        bt_3.grid(sticky='w')
 
-        self.define_layout(self.window, cols=2, rows=2)
-        self.define_layout([div1, div2, div3])
+        self.define_layout(self.window, cols=2, rows=3)
+        self.define_layout([div1, div2, div3, div4])
         
         self.window.mainloop()
 
