@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import messagebox
 import tkinter as tk
 import tkinter.ttk as ttk
+from TEL_lab.BuretteMotor.motor_main import DURATION
 from motor_function import motor_init, motor_run, motor_param, calVolume
 
 # ====== <parameters> ====== #
@@ -70,7 +71,13 @@ class Tkwindow():
 
     def autoMode(self):
         messagebox.showinfo('Burette Motor <info>', 'You choose the auto mode, the wine is mixing...')
-        motor_run(motor1, MODE=1, DURATION=5, MOTOR1_STEPS=100)
+        # setting motor duration
+        # >>> python motor_main.py <motor1 steps> <motor2 steps>
+        MOTOR1_STEPS, MOTOR2_STEPS = motor_param()
+
+        MODE = 1
+        DURATION = 5
+        motor_run(motor1, MODE, DURATION, MOTOR1_STEPS)
         messagebox.showinfo('Burette Motor <info>', 'Mixing finish.')
 
     def customMode(self):

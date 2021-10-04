@@ -14,14 +14,7 @@ root = Tkwindow()
 '''
 if __name__ == "__main__":
     
-    # setting motor duration
-    # >>> python motor_main.py <motor1 steps> <motor2 steps>
-    MOTOR1_STEPS, MOTOR2_STEPS = motor_param()
-
-    # initial motor 1
-    MOTOR1_SEQUENCE, MOTOR1_SEQUENCE_COUNT, MOTOR1_PIN_COUNT = motor_init(motor1)
-    # initial motor 2
-    MOTOR2_SEQUENCE, MOTOR2_SEQUENCE_COUNT, MOTOR2_PIN_COUNT = motor_init(motor2)
+    
     
     # program start
     try:
