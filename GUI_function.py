@@ -262,7 +262,7 @@ class Acid(Custom):
         SEQUENCE2, SEQUENCE_COUNT2, PIN_COUNT2 = motor_init(motor2)
          
         # total volume = 40
-        if ACIDITY == 'No':
+        if ACIDITY == 'Zero':
             DURATION1, DURATION2 = Mixing(0, 40)
         elif ACIDITY == 'Quarter':
             DURATION1, DURATION2 = Mixing(5, 35)
