@@ -114,7 +114,7 @@ class Custom(Tkwindow):
         # radiobutton
         bt1 = tk.Radiobutton(cMode_div2, text='Sweetness', variable=selected, value='Sweet', font=('Arial', 12), command=self.sweetAdjust)
         bt1.grid(column=0, row=0, sticky='w')
-        bt2 = tk.Radiobutton(cMode_div2, text='Acidity', variable=selected, value='Acid', font=('Arial', 12), command=self.msg_box)  
+        bt2 = tk.Radiobutton(cMode_div2, text='Acidity', variable=selected, value='Acid', font=('Arial', 12), command=self.acidAdjust)  
         bt2.grid(column=1, row=0, sticky='e')
 
         self.define_layout(self.window, cols=1, rows=3)
@@ -126,6 +126,10 @@ class Custom(Tkwindow):
     def sweetAdjust(self):
         self.quit()
         sweetAdustWindow = Sweet()
+    # adjust sweetness
+    def acidAdjust(self):
+        self.quit()
+        acidAdustWindow = Acid()
         
 # adjust sweetness window 
 class Sweet(Custom):
@@ -203,4 +207,80 @@ class Sweet(Custom):
         # setting different ratio of the mix
         
         self.quit()
-# %%
+ 
+# adjust acidity window 
+class Acid(Custom):
+    def __init__(self):
+        self.window = tk.Tk()
+        self.window.title('Burette Motor <Adjust Acidity>')
+        self.window.geometry('350x70')
+        # setting frame of the widget
+        acid_div1 = tk.Frame(self.window, width=350, height=40, bg='blue')
+        acid_div2 = tk.Frame(self.window, width=230, height=30, bg='green')
+        acid_div3 = tk.Frame(self.window, width=120, height=30, bg='red')
+
+        # setting widget position = (column, row)
+        acid_div1.grid(column=0, row=0, columnspan=2, padx=5)
+        acid_div2.grid(column=0, row=1, padx=10, pady=5)
+        acid_div3.grid(column=1, row=1, padx=10, pady=5)
+        
+        self.define_layout(self.window, cols=2, rows=2)
+        self.define_layout([acid_div1, acid_div2, acid_div3])
+        
+        lb1 = tk.Label(acid_div1, text='Adjust the acidity you want.', font=('Arial', 14))
+        lb1.grid()
+        
+        # sweetness menu options (default as normal sweet)
+        self.opt = ttk.Combobox(acid_div2, state='readonly')
+        self.opt['values'] = ['Zero', 'Quarter', 'Half', 'Less', 'Normal', 'Very', 'Super']
+        self.opt.current(4)
+        self.opt.grid(sticky='e')
+
+        bt_1 = tk.Button(acid_div3, text='Confirm', font=('Arial', 10), bg='gray', fg='white', command=self.set_acid)
+        bt_1.grid(sticky='w')
+        
+        self.define_layout(self.window, cols=2, rows=2)
+        self.define_layout([acid_div1, acid_div2, acid_div3])
+        
+        self.window.mainloop()
+
+        # confirm sweet choose
+    def set_acid(self):
+        # Enable SWEETNESS_ENABLE and disable ACIDITY_ENABLE
+        # Get custom parameters
+        global SWEETNESS, SWEETNESS_ENABLE, ACIDITY, ACIDITY_ENABLE
+        SWEETNESS_ENABLE = 'False'
+        ACIDITY_ENABLE = 'True'
+        print('set <ACIDITY_ENABLE> ', ACIDITY_ENABLE)
+        ACIDITY = self.opt.get()
+        print('set <ACIDITY> ', ACIDITY)
+
+        messagebox.showinfo('Burette Motor <info>', "You choose the custom mode.\nPress OK to start mixing.")
+        # initial motor1 and motor2
+        MOTOR1_STEPS, MOTOR2_STEPS = motor_param()
+        SEQUENCE1, SEQUENCE_COUNT1, PIN_COUNT1 = motor_init(motor1)
+        SEQUENCE2, SEQUENCE_COUNT2, PIN_COUNT2 = motor_init(motor2)
+         
+        # total volume = 40
+        if ACIDITY == 'No':
+            DURATION1, DURATION2 = Mixing(0, 40)
+        elif ACIDITY == 'Quarter':
+            DURATION1, DURATION2 = Mixing(5, 35)
+        elif ACIDITY == 'Half':
+            DURATION1, DURATION2 = Mixing(10, 30)
+        elif ACIDITY == 'Less':
+            DURATION1, DURATION2 = Mixing(15, 25)
+        elif ACIDITY == 'Normal':
+            DURATION1, DURATION2 = Mixing(20, 20)
+        elif ACIDITY == 'Very':
+            DURATION1, DURATION2 = Mixing(30, 10)
+        elif ACIDITY == 'Super':
+            DURATION1, DURATION2 = Mixing(40, 0)
+
+        # start mixing
+        motor_run(motor1, 1, DURATION1, MOTOR1_STEPS)
+        motor_run(motor2, 2, DURATION2, MOTOR2_STEPS)
+        messagebox.showinfo('Burette Motor <info>', 'Mixing finish.')
+        # setting different ratio of the mix
+        
+        self.quit()
