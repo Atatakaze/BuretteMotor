@@ -187,23 +187,32 @@ class Sweet(Custom):
         # total volume = 40
         if SWEETNESS == 'No Sweet':
             DURATION1, DURATION2 = Mixing(0, 40)
+            score = 5.57
         elif SWEETNESS == 'Quarter Sweet':
-            DURATION1, DURATION2 = Mixing(5, 35)
+            DURATION1, DURATION2 = Mixing(8, 32)
+            score = 5.91
         elif SWEETNESS == 'Half Sweet':
-            DURATION1, DURATION2 = Mixing(10, 30)
+            DURATION1, DURATION2 = Mixing(16, 24)
+            score = 6.04
         elif SWEETNESS == 'Less Sweet':
-            DURATION1, DURATION2 = Mixing(15, 25)
-        elif SWEETNESS == 'Normal Sweet':
             DURATION1, DURATION2 = Mixing(20, 20)
+            score = 6.23
+        elif SWEETNESS == 'Normal Sweet':
+            DURATION1, DURATION2 = Mixing(24, 16)
+            score = 6.48
         elif SWEETNESS == 'Very Sweet':
-            DURATION1, DURATION2 = Mixing(30, 10)
+            DURATION1, DURATION2 = Mixing(32, 8)
+            score = 6.66
         elif SWEETNESS == 'Super Sweet':
             DURATION1, DURATION2 = Mixing(40, 0)
+            score = 6.63
 
         # start mixing
         motor_run(motor1, 1, DURATION1, MOTOR1_STEPS)
         motor_run(motor2, 2, DURATION2, MOTOR2_STEPS)
+        score_msg = "Evaluation score: %f" %score
         messagebox.showinfo('Burette Motor <info>', 'Mixing finish.')
+        messagebox.showinfo('Burette Motor <score>', score_msg)
         # setting different ratio of the mix
         
         self.quit()
@@ -264,6 +273,7 @@ class Acid(Custom):
         # total volume = 40
         if ACIDITY == 'Zero':
             DURATION1, DURATION2 = Mixing(0, 40)
+            score = 
         elif ACIDITY == 'Quarter':
             DURATION1, DURATION2 = Mixing(5, 35)
         elif ACIDITY == 'Half':
