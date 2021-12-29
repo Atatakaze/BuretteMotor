@@ -80,7 +80,9 @@ class Tkwindow():
         # start mixing
         motor_run(motor1, 1, DURATION1, MOTOR1_STEPS)
         motor_run(motor2, 2, DURATION2, MOTOR2_STEPS)
+        score_msg = "Evaluation score: 6.66"
         messagebox.showinfo('Burette Motor <info>', 'Mixing finish.')
+        messagebox.showinfo('Burette Motor <info>', score_msg)
 
     def customMode(self):
         custom_window = Custom()
@@ -210,9 +212,9 @@ class Sweet(Custom):
         # start mixing
         motor_run(motor1, 1, DURATION1, MOTOR1_STEPS)
         motor_run(motor2, 2, DURATION2, MOTOR2_STEPS)
-        score_msg = "Evaluation score: %f" %score
+        score_msg = "Evaluation score: %.2f" %score
         messagebox.showinfo('Burette Motor <info>', 'Mixing finish.')
-        messagebox.showinfo('Burette Motor <score>', score_msg)
+        messagebox.showinfo('Burette Motor <info>', score_msg)
         # setting different ratio of the mix
         
         self.quit()
@@ -271,26 +273,34 @@ class Acid(Custom):
         SEQUENCE2, SEQUENCE_COUNT2, PIN_COUNT2 = motor_init(motor2)
          
         # total volume = 40
-        if ACIDITY == 'Zero':
+        if ACIDITY == 'No Sour':
             DURATION1, DURATION2 = Mixing(0, 40)
-            score = 
-        elif ACIDITY == 'Quarter':
-            DURATION1, DURATION2 = Mixing(5, 35)
-        elif ACIDITY == 'Half':
-            DURATION1, DURATION2 = Mixing(10, 30)
-        elif ACIDITY == 'Less':
-            DURATION1, DURATION2 = Mixing(15, 25)
-        elif ACIDITY == 'Normal':
+            score = 5.57
+        elif ACIDITY == 'Quarter Sour':
+            DURATION1, DURATION2 = Mixing(8, 32)
+            score = 5.91
+        elif ACIDITY == 'Half Sour':
+            DURATION1, DURATION2 = Mixing(16, 24)
+            score = 6.04
+        elif ACIDITY == 'Less Sour':
             DURATION1, DURATION2 = Mixing(20, 20)
-        elif ACIDITY == 'Very':
-            DURATION1, DURATION2 = Mixing(30, 10)
-        elif ACIDITY == 'Super':
+            score = 6.23
+        elif ACIDITY == 'Normal Sour':
+            DURATION1, DURATION2 = Mixing(24, 16)
+            score = 6.48
+        elif ACIDITY == 'Very Sour':
+            DURATION1, DURATION2 = Mixing(32, 8)
+            score = 6.66
+        elif ACIDITY == 'Super Sour':
             DURATION1, DURATION2 = Mixing(40, 0)
+            score = 6.63
 
         # start mixing
         motor_run(motor1, 1, DURATION1, MOTOR1_STEPS)
         motor_run(motor2, 2, DURATION2, MOTOR2_STEPS)
+        score_msg = "Evaluation score: %.2f" %score
         messagebox.showinfo('Burette Motor <info>', 'Mixing finish.')
+        messagebox.showinfo('Burette Motor <info>', score_msg)
         # setting different ratio of the mix
         
         self.quit()
