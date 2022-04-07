@@ -1,12 +1,13 @@
-##################################################
-#                                                #
-# Program:                                       #
-#       motor functions used by motor_main.py    #
-# History:                                       #
-#       2021/09/14                               #
-# < using 4-steps step motor >                   #
-#                                                #
-##################################################
+#########################################################
+#                                                	#
+# Program:                                       	#
+#       checking whether the motor works properly 	#
+#	functions used by motor_main_test.py    	#
+# History:                                       	#
+#       2021/09/14                               	#
+# < using 4-steps step motor >                   	#
+#                                                	#
+#########################################################
 
 import RPi.GPIO as GPIO
 import time

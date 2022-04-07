@@ -1,7 +1,8 @@
 ##################################################
 #                                                #
-# Program:                                       #
-#       motor_main.py                            #
+# Program:					 #
+#	check whether the motor worls properly   #
+#       motor_main_test.py                       #
 # History:                                       #
 #       2021/09/14                               #
 # < using 4-steps step motor >                   #
