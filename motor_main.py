@@ -1,12 +1,12 @@
-##################################################
-#                                                #
-# Program:                                       #
-#       motor_main.py                            #
-# History:                                       #
-#       2021/09/15                               #
-# < using 4-steps step motor >                   #
-#                                                #
-##################################################
+#!/usr/bin/python3
+# Program:
+#	Using step motor to open and close the burette with command line.
+#	Customize the extent that burette opens.
+# Author:
+#	 bobo
+# History:
+#       2022/04/11	@bobo
+
 
 from motor_function import motor_init, motor_run, motor_param
 import RPi.GPIO as GPIO

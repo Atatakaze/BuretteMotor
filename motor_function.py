@@ -1,12 +1,11 @@
-##################################################
-#                                                #
-# Program:                                       #
-#       motor functions used by motor_main.py    #
-# History:                                       #
-#       2021/10/04                               #
-# < using 4-steps step motor >                   #
-#                                                #
-##################################################
+#!/usr/bin/python3
+# Program:
+#       Providing GUI_main.py and motor_main.py with functions for opening and closing burette.
+# Author:
+#	bobo
+# History:
+#       2022/04/11	@bobo
+
 
 import RPi.GPIO as GPIO
 import time
