@@ -1,3 +1,12 @@
+#!usr/bin/python3
+# Program:
+#	Provide GUI_main.py with GUI window class and functions.
+# Author:
+# 	bobo
+# History:
+# 	2022/04/11	@bobo 
+
+
 from tkinter import *
 from tkinter import messagebox
 import tkinter as tk

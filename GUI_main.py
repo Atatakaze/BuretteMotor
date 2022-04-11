@@ -1,3 +1,12 @@
+#!/usr/bin/python3
+# Program:
+# 	Enable users to open and close burette with GUI.
+# Author:
+# 	bobo
+# History:
+#	2022/04/11	@bobo
+
+
 from GUI_function import Tkwindow, Custom, Sweet
 import RPi.GPIO as GPIO
 
