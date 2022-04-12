@@ -2,7 +2,7 @@
 
 ## **Program** ##
 
-> Using Raspberry Pi to control the motor that is installed on a burette, thus mixing two wines in a specific ratio.  
+> Using Raspberry Pi to control the step motor that is installed on a burette, thus mixing two wines in a specific ratio.  
 
 ## **Settings** ##
 
@@ -30,7 +30,7 @@
 
 - ### GUI_main.py ### 
 
-   Run `GUI_main.py` to launch this program with GUI. 
+   Run `GUI_main.py` to launch the wine-mixing program with GUI. 
    
    ( `GUI_function.py` and `motor_function.py` are imported in `GUI_main.py` )
     
@@ -76,7 +76,7 @@
      
 - ### motor_main.py & motor_function.py ### 
 
-   Run `motor_main.py` to control the total volume that the fluid passes through burette motor.
+   Run `motor_main.py` to control the total volume of the fluid that passes through burette.
    
    ( `motor_function.py` is imported in `motor_main.py` )
  
@@ -94,7 +94,7 @@
    
    Follow the instuction to designate which motor to run, adjust the direction of motor and assaign the duration time that the burette remains open.
    
-   The duration time, which the burette remains open, influences the total volume the fluid passes through the burette.
+   The duration time, which the burette remains open, influences the total volume of the fluid that passes through the burette.
    
    > TotalVolume(ml) = FlowSpeed(ml/s) x Duration(s) + VolumeWhenOpenAndClose(ml)
    
