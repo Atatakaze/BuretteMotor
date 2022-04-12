@@ -20,11 +20,17 @@
 
    - motor1: 
    
-      IN1 -> 17, IN2 -> 18, IN3 -> 27, IN4 -> 22      
+         IN1 -> 17 
+         IN2 -> 18 
+         IN3 -> 27
+         IN4 -> 22      
       
    - motor2: 
    
-      IN1 -> 10, IN2 -> 9, IN3 -> 11, IN4 -> 8      
+         IN1 -> 10 
+         IN2 -> 9
+         IN3 -> 11
+         IN4 -> 8      
 
 ## **Instruction** ##
 
