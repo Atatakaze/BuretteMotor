@@ -144,4 +144,4 @@
 
 ## **License** ##
 
-This project is licensed under MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under MIT License - see the [LICENSE.md](https://github.com/Atatakaze/BuretteMotor/blob/main/LICENSE) file for details.
